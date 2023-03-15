@@ -7,33 +7,33 @@
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	
-	int matriz[LIN][COL]; 
-	int determinante, dp = 1, ds = 1; 
+	int m[LIN][COL]; 
 	
-	printf("\t\t\t\t\tDETERMINANTE DA MATRIZ\n\n");
+	int det, dp = 1, ds = 1; 
+	
 	
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("Digite o valor da posição [%d][%d]: ", i, j);
-			scanf("%d", &matriz[i][j]);
+			printf("Digite o valor da posiÃ§Ã£o [%d][%d]: ", i, j);
+			scanf("%d", &m[i][j]);
 		}
 	}
 	
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++) {
 	      	if(i==j){
-	      		dp*= matriz[i][j];
+	      		dp*= m[i][j];
 		  	}
 		  	if(j==(COL - 1)- i){
-		  		ds*= matriz[i][j];
+		  		ds*= m[i][j];
 		  	}
 	    }
 	}
 	
-	determinante = dp - ds;
+	det = dp - ds;
   	
   	printf("\n");
-   	printf("O determinante dessa matriz é: %d\n", determinante);
+   	printf("O determinante dessa matriz Ã©: %d\n", det);
    
 	return 0;
 }
