@@ -1,3 +1,7 @@
+//Revisar a matemática. Problema de base.
+
+
+
 #include <stdio.h>
 #include <locale.h>
 
@@ -7,53 +11,55 @@
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	
-	int matriz_original[LIN][COL];
-	int matriz_cofatora[LIN][COL];
+	int m_o[LIN][COL];
+	int m_c[LIN][COL];
 	int aux;
 	
-	printf("\t\t\t\t\tMATRIZ COFATORA\n\n");
 	
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("Digite o valor da posi��o [%d][%d]: ", i, j);
-			scanf("%d", &matriz_original[i][j]);
+			printf("Digite o valor da posição [%d][%d]: ", i, j);
+			scanf("%d", &m_o[i][j]);
 		}
 	}
 	
 	printf("\nMatriz Original:\n"); 
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++){
-	    	printf("%d\t", matriz_original[i][j]);
+	    	printf("%d\t", m_o[i][j]);
 		}
 		printf("\n");
 	}
 	
   	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++) {
-	  		matriz_cofatora[i][j] = matriz_original[i][j];	
+	  		m_c[i][j] = m_o[i][j];	
 		}
 	}
 	
 	for(int i = 0; i < LIN; i++) {
 	    for (int j = 0; j < COL; j++) {
 		  	if(j==(COL - 1)- i){
-		  		matriz_cofatora[i][j] = -matriz_cofatora[i][j];
+		  		m_c[i][j] = -m_c[i][j];
 		  	}
 	    }
 	}
 	
-	aux = matriz_cofatora[0][0];
-	matriz_cofatora[0][0] = matriz_cofatora[1][1];
-	matriz_cofatora[1][1] = aux;
 	
-	aux = matriz_cofatora[0][1];
-	matriz_cofatora[0][1] = matriz_cofatora[1][0];
-	matriz_cofatora[1][0] = aux;
+	//Revisar essa parte para a prova: Dúvidas no cálculo matemático.
+	
+	aux = m_c[0][0];
+	m_c[0][0] = m_c[1][1];
+	m_c[1][1] = aux;
+	
+	aux = m_c[0][1];
+	m_c[0][1] = m_c[1][0];
+	m_c[1][0] = aux;
 
 	printf("\nMatriz Cofatora:\n");
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++){
-	    	printf("%d\t", matriz_cofatora[i][j]);
+	    	printf("%d\t", m_c[i][j]);
 		}
 		printf("\n");
 	}
