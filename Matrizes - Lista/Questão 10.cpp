@@ -7,22 +7,21 @@
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	
-	int matriz_original[LIN][COL];
-	int matriz_reflexao[LIN][COL];
+	int m_o[LIN][COL];
+	int m_r[LIN][COL];
 	
-	printf("\t\t\t\t\tMATRIZ REFLEXÃO\n\n");
 	
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("Digite o valor da posição [%d][%d]: ", i, j);
-			scanf("%d", &matriz_original[i][j]);
+			printf("Digite a posiÃ§Ã£o [%d][%d]: ", i, j);
+			scanf("%d", &m_o[i][j]);
 		}
 	}
 	
 	printf("\nMatriz Original:\n");
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++){
-	    	printf("%d\t", matriz_original[i][j]);
+	    	printf("%d\t", m_o[i][j]);
 		}
 		printf("\n");
 	}
@@ -30,17 +29,17 @@ int main(){
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++) {
 	    	if(j == 0) {
-	    		matriz_reflexao[i][j] = -matriz_original[i][j];	
+	    		m_r[i][j] = -m_o[i][j];	
 			} else {
-				matriz_reflexao[i][j] = matriz_original[i][j];
+				m_r[i][j] = m_o[i][j];
 			}
 	    }
 	}
 	
-	printf("\nMatriz reflexão ao eixo y:\n");
+	printf("\nA Matriz reflexÃ£o ao eixo y Ã©:\n");
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("%d\t", matriz_reflexao[i][j]);
+			printf("%d\t", m_r[i][j]);
 		}
 		printf("\n");
 	}
