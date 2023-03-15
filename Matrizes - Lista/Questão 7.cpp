@@ -1,3 +1,6 @@
+//Revisar durante recesso: Muita dificuldade.
+
+
 #include <stdio.h>
 #include <locale.h>
 
@@ -7,23 +10,21 @@
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	
-	int matriz_original[LIN][COL];
-	int matriz_diagonal[LIN][COL];
-	
-	printf("\t\t\t\t\tMATRIZ DIAGONAL\n\n");
+	int m_o[LIN][COL];
+	int m_d[LIN][COL];
 	
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("Digite o valor da posição [%d][%d]: ", i, j);
-			scanf("%d", &matriz_original[i][j]);
+			printf("Digite o valor da posiÃ§Ã£o [%d][%d]: ", i, j);
+			scanf("%d", &m_o[i][j]);
 		}
 		printf("\n");
 	}
 	
-	printf("\nMatriz Original:\n");
+	printf("\nSua Matriz Original:\n");
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++){
-	    	printf("%d\t", matriz_original[i][j]);
+	    	printf("%d\t", m_o[i][j]);
 		}
 		printf("\n");
 	}
@@ -31,18 +32,18 @@ int main(){
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++) {
 	    	if(i==j){
-	      		matriz_diagonal[i][j] = matriz_original[i][j];
+	      		m_d[i][j] = m_o[i][j];
 			}
 		  	else{
-		  		matriz_diagonal[i][j] = 0;
+		  		m_d[i][j] = 0;
 			}
 	    }
 	}
 	
-	printf("\nMatriz Diagonal:\n");
+	printf("\nSua Matriz Diagonal:\n");
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("%d\t", matriz_diagonal[i][j]);
+			printf("%d\t", m_d[i][j]);
 		}
 		printf("\n");
 	}
