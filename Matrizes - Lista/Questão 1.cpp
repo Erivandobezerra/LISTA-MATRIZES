@@ -7,37 +7,35 @@
 int main (){
 	setlocale(LC_ALL,"Portuguese_Brazil");
 	
-	int matriz_original[LIN] [COL];
-	int matriz_t[COL] [LIN];
-	
-	printf("\t\t\t\t\tMATRIZ TRANSPOSTA\n\n");
+	int m_o[LIN] [COL];
+	int m_t[COL] [LIN];
 	
 	for(int i = 0; i < LIN; i++){ 
 		for(int j = 0; j < COL; j++){ 
-			printf("Digite o valor da posição [%d][%d]: ", i, j);
-			scanf("%d", &matriz_original[i][j]);
+			printf("Digite o valor da posiÃ§Ã£o [%d][%d]: ", i, j);
+			scanf("%d", &m_o[i][j]);
 		}
 		printf("\n");	
 	}
 	
-	printf("Matriz Original:\n");
+	printf("A sua Matriz Original:\n");
 	for(int i = 0; i < LIN; i++){ 
 		for(int j = 0; j < COL; j++){ 
-			printf("%d \t", matriz_original[i][j]);
+			printf("%d \t", m_o[i][j]);
 		}	
 		printf("\n");
 	}
 
 	for(int i = 0; i < COL; i++){ 
 		for(int j = 0; j < LIN; j++){ 
-			matriz_t[i][j] = matriz_original[j][i];
+			matriz_t[i][j] = m_o[j][i];
 		}		
 	}
 	
-	printf("\nMatriz Transposta:\n");
+	printf("\nSua Matriz Transposta:\n");
 	for(int i = 0; i < LIN; i++){ 
 		for(int j = 0; j < COL; j++){ 
-			printf("%d \t", matriz_t[i][j]);
+			printf("%d \t", m_t[i][j]);
 		}	
 		printf("\n");	
 	}
