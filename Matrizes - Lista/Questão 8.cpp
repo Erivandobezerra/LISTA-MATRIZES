@@ -1,3 +1,7 @@
+//Revisar matemática básica antes da prova.
+
+
+
 #include <stdio.h>
 #include <locale.h>
 
@@ -7,23 +11,21 @@
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	
-	int matriz_original[LIN][COL];
-	int matriz_identidade[LIN][COL];
-	
-	printf("\t\t\t\t\tMATRIZ IDENTIDADE\n\n");
+	int m_o[LIN][COL];
+	int m_i[LIN][COL];
 	
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("Digite o valor da posi��o [%d][%d]: ", i, j);
-			scanf("%d", &matriz_original[i][j]);
+			printf("Digite o valor da posição [%d][%d]: ", i, j);
+			scanf("%d", &m_o[i][j]);
 		}
 		printf("\n");
 	}
 	
-	printf("\nMatriz Original:\n");
+	printf("\nSua Matriz Original:\n");
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++){
-	    	printf("%d\t", matriz_original[i][j]);
+	    	printf("%d\t", m_o[i][j]);
 		}
 		printf("\n");
 	}
@@ -31,18 +33,18 @@ int main(){
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++) {
 	    	if(i==j){
-	      		matriz_identidade[i][j] = 1;
+	      		m_i[i][j] = 1;
 			}
 		  	else{
-		  		matriz_identidade[i][j] = 0;
+		  		m_i[i][j] = 0;
 			}
 	    }
 	}
 	
-	printf("\nMatriz Identidade:\n");
+	printf("\nSua matriz Identidade:\n");
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("%d\t", matriz_identidade[i][j]);
+			printf("%d\t", m_i[i][j]);
 		}
 		printf("\n");
 	}
