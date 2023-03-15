@@ -7,23 +7,25 @@
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	
-	float matriz_original[LIN][COL];
-	float matriz_inversa[LIN][COL];
-	float determinante, dp = 1, ds = 1, aux;
+	float m_o[LIN][COL];
 	
-	printf("\t\t\t\t\tMATRIZ INVERSA\n\n");
+	float m_i[LIN][COL];
+	
+	float det, dp = 1, ds = 1, aux;
+	
+	
 	
 	for(int i = 0; i < LIN; i++){
 		for(int j = 0; j < COL; j++){
-			printf("Digite o valor da posição [%d][%d]: ", i, j);
-			scanf("%f", &matriz_original[i][j]);
+			printf("Digite o valor da posiÃ§Ã£o [%d][%d]: ", i, j);
+			scanf("%f", &m_o[i][j]);
 		}
 	}
 	
 	printf("\nMatriz Original:\n"); 
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++){
-	    	printf("%.2f\t", matriz_original[i][j]);
+	    	printf("%.2f\t", m_o[i][j]);
 		}
 		printf("\n");
 	}
@@ -31,38 +33,38 @@ int main(){
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++) {
 	      	if(i==j){
-	      		dp*= matriz_original[i][j];
+	      		dp*= m_o[i][j];
 		 	}
 		  	if(j==(COL - 1)- i){
-		  		ds*= matriz_original[i][j];
+		  		ds*= m_o[i][j];
 			}
 	    }
 	}
 	
-	determinante = dp - ds; 
+	det = dp - ds; 
 
   	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++) {
-	  		matriz_inversa[i][j] = matriz_original[i][j]/determinante;	
+	  		m_i[i][j] = m_o[i][j]/det;	
 		}
 	}
 	
 	for(int i = 0; i < LIN; i++) {
 	    for (int j = 0; j < COL; j++) {
 		  	if(j==(COL - 1) - i){
-		  		matriz_inversa[i][j] = -matriz_inversa[i][j];
+		  		m_i[i][j] = -m_i[i][j];
 		  	}
 	    }
 	}
 	
-	aux = matriz_inversa[0][0];
-	matriz_inversa[0][0] = matriz_inversa[1][1];
-	matriz_inversa[1][1] = aux;
+	aux = m_i[0][0];
+	m_i[0][0] = m_i[1][1];
+	m_i[1][1] = aux;
 
 	printf("\nMatriz Inversa:\n");
 	for(int i = 0; i < LIN; i++) {
 	    for(int j = 0; j < COL; j++){
-	    	printf("%.2f\t", matriz_inversa[i][j]);
+	    	printf("%.2f\t", m_i[i][j]);
 		}
 		printf("\n");
 	}
